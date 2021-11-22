@@ -8,9 +8,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "fs": "^0.0.1-security",
+    "mdx-bundler": "^8.0.0",
     "next": "12.0.4",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-markdown": "^7.1.0",
+    "react-math": "^0.0.1",
+    "react-mathjax": "^1.0.1",
+    "rehype-katex": "^6.0.2",
+    "rehype-stringify": "^9.0.2",
+    "remark-math": "^5.1.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.0.1",
+    "to-vfile": "^7.2.2",
+    "unified": "^10.1.1",
+    "xdm": "^3.3.0"
   },
   "devDependencies": {
     "eslint": "7.32.0",
