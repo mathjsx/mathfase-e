@@ -35,6 +35,22 @@ export default function Page(props) {
 
 export async function getStaticPaths() {
   //
+  const getPathsRecurse = (dir: string, arrayOfFiles: string[]) => {
+    const files = fs.readdirSync(dir);
+    arrayOfFiles = arrayOfFiles || []; // Set to empty array if defined
+    files.forEach(function (file) {
+      if (fs.statSync(dir + "/" + file).isDirectory()) {
+        arrayOfFiles = getPathsRecurse(dir + "/" + file, arrayOfFiles);
+  
+      } else {
+        arrayOfFiles.push(path.join(dir, "/", file));
+  
+      }
+    });
+    return arrayOfFiles;
+  }
+
+  
   const allFiles = getPathsRecurse("pages", []).map((file) => {
     const fileAsArray = file.split("/")
     return fileAsArray;
@@ -128,21 +144,4 @@ export async function getStaticProps({ params }) {
       data
     }
   };
-}
-
-// helpers
-
-export const getPathsRecurse = (dir: string, arrayOfFiles: string[]) => {
-  const files = fs.readdirSync(dir);
-  arrayOfFiles = arrayOfFiles || []; // Set to empty array if defined
-  files.forEach(function (file) {
-    if (fs.statSync(dir + "/" + file).isDirectory()) {
-      arrayOfFiles = getPathsRecurse(dir + "/" + file, arrayOfFiles);
-
-    } else {
-      arrayOfFiles.push(path.join(dir, "/", file));
-
-    }
-  });
-  return arrayOfFiles;
 }
