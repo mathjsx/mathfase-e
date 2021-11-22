@@ -1,4 +1,3 @@
-import Link from "next/Link"
 import { bundleMDX } from "mdx-bundler"
 import fs from "fs"
 import path from "path";
