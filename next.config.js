@@ -3,11 +3,13 @@ module.exports = {
   experimental: { esmExternals: true },
   // Support MDX files as pages:
   pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
-  // Support loading `.md`, `.mdx`
-  webpack: (config, options) => {
-    config.node = {
-      fs: "empty",
-    };
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on fs module
+    if (!isServer) {
+      config.node = {
+        fs: "empty",
+      };
+    }
     return config;
   },
   reactStrictMode: true,
