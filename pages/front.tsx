@@ -1,4 +1,4 @@
-export function Front(){
+ export default function Front(){
 <div>
   <div className="min-h-60px p-6 bg-gradient-to-b from-blue-200 via-blue-100">
     <h1 className="text-center text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-blue-400 to-blue-800">
