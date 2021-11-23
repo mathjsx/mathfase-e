@@ -34,7 +34,7 @@ export default function Page(props) {
 }
 
 export async function getStaticPaths() {
-  //
+
   const getPathsRecurse = (dir: string, arrayOfFiles: string[]) => {
     const files = fs.readdirSync(dir);
     arrayOfFiles = arrayOfFiles || []; // Set to empty array if defined
@@ -50,7 +50,7 @@ export async function getStaticPaths() {
     return arrayOfFiles;
   }
 
-  
+  //
   const allFiles = getPathsRecurse("pages", []).map((file) => {
     const fileAsArray = file.split("/")
     return fileAsArray;
@@ -77,6 +77,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+
   var slug: string[];
 
   if (typeof params.slug === "string") {
