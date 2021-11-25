@@ -48,11 +48,12 @@ const SingleForm: FC<{
                     onChange={(event) => setInput(event.target.value)}
                 />
                 <button
-                    className="px-5 py-2 rounded overflow-hidden focus:outline-none focus:shadow-outline bg-teal-400 text-white text-sm lg:text-base"
+                    className="px-5 py-2 rounded overflow-hidden focus:outline-none focus:shadow-outline bg-teal-400 text-black text-sm lg:text-base"
                     onClick={() => { submission() }}
                 >
                     Submit
                 </button>
+                
             </form>
             <Response />
         </div>);
