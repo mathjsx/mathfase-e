@@ -37,8 +37,8 @@ const SingleForm: FC<{
     }
     function handleChange(event) {
         setInput(event.target.value);
-        setSubmit(false);
     }
+    
     return (
         <div className={"h-24 w-24 rounded-xl bg-blue-200"}>
             <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
