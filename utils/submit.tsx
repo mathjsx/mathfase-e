@@ -35,9 +35,6 @@ const SingleForm: FC<{
     function submission() {
         setSubmit(true);
     }
-    function handleChange(event) {
-        setInput(event.target.value);
-    }
     
     return (
         <div>
@@ -48,7 +45,7 @@ const SingleForm: FC<{
                 <input
                     type="text"
                     value={input}
-                    onChange={(event) => handleChange(event)}
+                    onChange={(event) => setInput(event.target.value)}
                 />
                 <button
                     className="px-5 py-2 rounded overflow-hidden focus:outline-none focus:shadow-outline bg-teal-400 text-white text-sm lg:text-base"
