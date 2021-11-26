@@ -44,7 +44,7 @@ const SingleForm: FC<{
                 <button
                     className="px-5 py-2 rounded overflow-hidden focus:outline-none focus:shadow-outline bg-teal-400 text-black text-sm lg:text-base"
                     type = "button"
-                    onClick={() => {setSubmit(true); event.preventDefault();}}
+                    onClick={(event) => {setSubmit(true); event.preventDefault();}}
                 >
                     Submit
                 </button>
