@@ -3,12 +3,12 @@ import fs from "fs"
 import path from "path";
 import matter from "gray-matter"
 
-import {remarkPlugins} from "../utils/MDXPlugins"
-import {rehypePlugins} from "../utils/MDXPlugins"
+import { remarkPlugins } from "../utils/MDXPlugins"
+import { rehypePlugins } from "../utils/MDXPlugins"
 
 import Head from "next/head"
 import { getMDXComponent } from "mdx-bundler/client";
-import {useMemo} from "react";
+import { useMemo } from "react";
 
 export default function Page(props) {
   const Content = useMemo(() => getMDXComponent(props.code), [props.code])
@@ -27,8 +27,12 @@ export default function Page(props) {
           content={`${props.data.desc || props.data.title}`}
         />
       </Head>
-      <h1>{props.data.title}</h1>
-      <Content/>
+        <h1 className="text-center text-lg">
+          {props.data.title}
+        </h1>
+        <div className="space-y-6">
+        <Content />
+        </div>
     </>
   )
 }
@@ -41,10 +45,10 @@ export async function getStaticPaths() {
     files.forEach(function (file) {
       if (fs.statSync(dir + "/" + file).isDirectory()) {
         arrayOfFiles = getPathsRecurse(dir + "/" + file, arrayOfFiles);
-  
+
       } else {
         arrayOfFiles.push(path.join(dir, "/", file));
-  
+
       }
     });
     return arrayOfFiles;
@@ -52,7 +56,7 @@ export async function getStaticPaths() {
 
   //
   const allFiles = getPathsRecurse("pages", []).map((file) => {
-    const fileAsArray = file.split("/")
+    const fileAsArray = file.split(path.sep)
     return fileAsArray;
   })
 
@@ -123,7 +127,7 @@ export async function getStaticProps({ params }) {
 
   const PAGES_PATH = path.join(process.cwd(), "pages");
 
-  
+
   const { code } = await bundleMDX({
     source: content,
     cwd: PAGES_PATH,

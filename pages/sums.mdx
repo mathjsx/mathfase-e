@@ -1,0 +1,53 @@
+---
+title: Sums
+---
+
+import SingleForm from "../utils/submit";
+import Exercise from "../utils/exercise";
+import Example from "../utils/example";
+import Definition from "../utils/definition";
+import Theorem from "../utils/theorem";
+import Proof from "../utils/proof";
+
+<div className="m-auto w-1/2 space-y-3">
+<Definition name="Arithmetic Series and Sequences">
+An arithmetic series is $a_{1}+a_{2}+a_{3}\ldots $ where $a_{i}-a_{i-1}=d$ for some constant $d$ and all $i\ge 2$. Note that an arithmetic series refers to the **sum** while an arithmetic sequence refers to the **ordered list of terms**.[^1]
+</Definition>
+
+[^1]: Sometimes, an arithmetic sequence or series starts with index $0$, making it **zero-indexed**. The same formulas still apply but you will have to adjust the indexes accordingly.
+
+Using this definition, we can now derive some formulas for each term and the series.
+
+<Theorem name="Formula For Term">
+If $a_{i}$ is $i$th term of an arithmetic sequence with common difference $d$, then $a_{i}=a_{1}+(i-1)d$.
+</Theorem>
+
+Now, we'll present some common formulas for arithmetic series and sequences. These all easily follow from the previous formula but it's useful to know them to quickly manipulate arithmetic series.
+
+<Theorem name="Arithmetic Average">
+In an arithmetic series $a_{i}$, $a_{n}+a_{m}=2a_{\frac{n+m}{2}}$ if $n+m$ is even.
+</Theorem>
+
+In other words, the arithmetic average of two terms is the term with an index that is the arithmetic average of the two other terms' indexes. Visually, the term in the very middle of the two terms is the arithmetic average.
+
+<Proof>
+We have $a_{n}=a_{1}+(n-1)d$ and $a_{m}=a_{1}+(m-1)d$. Then, $a_{n}+a_{m}=2a_{1}+(n+m-2)d=2(a_{1}+(\frac{n+m}{2}-1)d)=2a_{\frac{n+m}{2}}$
+</Proof>
+
+<Example answer="55">
+Compute $\sum_{i=1}^{10} i$
+</Example>
+
+<Exercise answer="55">
+Compute $\sum_{i=1}^{10} i$
+</Exercise>
+
+<Exercise answer="55">
+Compute $\sum_{i=1}^{10} i$
+</Exercise>
+
+<Exercise source = "My Brain" answer="55">
+Compute $\sum_{i=1}^{10} i$
+</Exercise>
+
+</div>
