@@ -1,5 +1,5 @@
 ---
-title: Sums
+title: Series
 ---
 
 import SingleForm from "../utils/submit";
@@ -8,8 +8,11 @@ import Example from "../utils/example";
 import Definition from "../utils/definition";
 import Theorem from "../utils/theorem";
 import Proof from "../utils/proof";
+import Solution from "../utils/solution";
+import Section from "../utils/section";
 
 <div className="m-auto w-1/2 space-y-3">
+<Section number = "1.1" section="Arithmetic Series and Sequences"/>
 <Definition name="Arithmetic Series and Sequences">
 An arithmetic series is $a_{1}+a_{2}+a_{3}\ldots $ where $a_{i}-a_{i-1}=d$ for some constant $d$ and all $i\ge 2$. Note that an arithmetic series refers to the **sum** while an arithmetic sequence refers to the **ordered list of terms**.[^1]
 </Definition>
@@ -34,20 +37,46 @@ In other words, the arithmetic average of two terms is the term with an index th
 We have $a_{n}=a_{1}+(n-1)d$ and $a_{m}=a_{1}+(m-1)d$. Then, $a_{n}+a_{m}=2a_{1}+(n+m-2)d=2(a_{1}+(\frac{n+m}{2}-1)d)=2a_{\frac{n+m}{2}}$
 </Proof>
 
-<Example answer="55">
-Compute $\sum_{i=1}^{10} i$
+
+<Theorem name="Arithmetic Sequence and Series">
+For an arithmetic sequence $a_{i}$, $a_{1}+a_{2}\ldots + a_{n}=\frac{a_{1}+a_{n}}{2}\cdot n$.
+</Theorem>
+
+<Proof>
+Note that we can pair up $a_{i}$ and $a_{n+1-i}$ to get $a_{1}+(i-1)d+a_{1}+(n-i)d=2a_{1}+(n-1)d$. There is a special case that if $n$ is odd and $i=\frac{n+1}{2}$, we can't pair up that term with itself. However, $a_{\frac{n+1}{2}}=a_{1}+\frac{n-1}{2}d$ so it still averages out as $\frac{1}{2}$ of a pair.
+
+Then, we have $\frac{n}{2}$ pairs (if $n$ is odd, we have a "half" pair which is just the term $a_{\frac{1+n}{2}}=\frac{a_{1}+a_{n}}{2}$). So, our total sum is
+$\frac{n}{2}\cdot (a_{1}+a_{n})=\frac{a_{1}+a_{n}}{2}\cdot n$.
+</Proof>
+
+<Theorem name="Arithmetic Series">
+If the common difference is $d$ in arithmetic sequence $a_{i}$, $a_{1}+a_{2}\ldots + a_{n}=n\cdot a_{1}+d(\frac{(n-1)(n)}{2})$.
+</Theorem>
+
+<Proof>
+We use the previous theorem
+$$a_{1}+a_{2}\ldots + a_{n}$$
+$$=\frac{a_{1}+a_{n}}{2}\cdot n$$
+$$=\frac{a_{1}+a_{1}+(n-1)d}{2}\cdot n$$
+$$=a_{1}\cdot n + d(\frac{(n-1)(n)}{2})$$
+</Proof>
+
+Most of time, problems with arithmetic series require only simple algebraic manipulation to solve.
+
+<Example source="NanoMath Fall Meet 2020" answer = "4">
+Let $a_0, a_1, a_2, \ldots$ be an arithmetic sequence of positive integers. If $a_0 + a_1 + \cdots + a_{10} = 209$ and $a_{a_{0}} +
+a_{a_{1}} + \cdots + a_{a_{10}} = 671$, then find $a_0$.
 </Example>
 
-<Exercise answer="55">
-Compute $\sum_{i=1}^{10} i$
-</Exercise>
+<Solution>
+Using our series formula on $a_0 + a_1 + \cdots + a_{10} = 209$ gives that $11\cdot \frac{a_{0}+a_{10}}{2}=209\implies a_{0}+a_{10}=38\implies 2a_{0}+10d=38$.
 
-<Exercise answer="55">
-Compute $\sum_{i=1}^{10} i$
-</Exercise>
+Now,
+$$a_{a_{0}}+a_{a_{1}} + \cdots + a_{a_{10}} = 671$$
+$$11a_{0}+(a_{0}+a_{1}\cdots + a_{10})d=671$$
+$$11a_{0}+209d=671$$
 
-<Exercise source = "My Brain" answer="55">
-Compute $\sum_{i=1}^{10} i$
-</Exercise>
+Now, using the first equation, $11a_{0}+55d=209$. Then, subtracting from the second equation, $154d=462\implies d =3$. So, $a_{0}={4}$.
+</Solution>
 
 </div>
